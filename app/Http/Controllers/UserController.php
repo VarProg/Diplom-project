@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
-use App\Models\User;
 use Illuminate\Support\Facades\Gate;
+use App\Models\User;
 
 
 
@@ -18,7 +16,6 @@ class UserController extends Controller
      {
           $this->middleware('auth');
           $this->user = $user;
-          $this->info = $user->find($request->id)->info;
      }
 
      protected function edit_user_info(Request $request)
@@ -35,7 +32,7 @@ class UserController extends Controller
 
           Gate::authorize('update-user-security-info', [$request->id]);
 
-          $this->user->credentials($request);
+          $this->user->edit_credentials($request);
 
           return redirect('/page_users')->withSuccess('Профиль успешно обновлен!');
 

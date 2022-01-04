@@ -38,9 +38,9 @@ class AuthServiceProvider extends ServiceProvider
             }
         });
 
-        Gate::define('update-user-info', function(User $user, $user_id){
+        Gate::define('update-user-info', function(User $user, $id){
 
-            if (Auth::user()->id == $user->find($user_id)->info->user_id) {
+            if (Auth::user()->id == $user->find($id)->id) {
                 return Response::allow();
             }
             return Response::deny('Нельзя редактировать чужой профиль!');

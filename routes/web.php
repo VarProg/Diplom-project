@@ -58,12 +58,11 @@ Route::middleware('admin')->group(function() {
     Route::post('create_user', [AdminController::class, 'create_user']);
 });
 
-use App\Models\UserInfo;
+
 use App\Models\User;
 
 Route::get('/factory', function(){
         User::factory()->count(5)->create();
-        UserInfo::factory()->count(5)->create();
     });
 
 

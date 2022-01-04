@@ -19,7 +19,7 @@
                             </div>
                             <div class="panel-content">
                                 <div class="form-group">
-                                    <img src="/{{$userInView->info->image ?? "img/demo/avatars/avatar-m.png"}}" alt="" class="img-responsive" width="200">
+                                    <img src="/{{$userInView->image ?? "img/demo/avatars/avatar-m.png"}}" alt="" class="img-responsive" width="200">
                                 </div>
 
                                 <div class="form-group">

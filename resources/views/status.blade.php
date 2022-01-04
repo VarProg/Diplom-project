@@ -25,7 +25,7 @@
                                         <div class="form-group">
                                             <label class="form-label" for="example-select">Выберите статус</label>
                                             <select class="form-control" name="status" id="example-select">
-                                        @switch($userInView->info->status)
+                                        @switch($userInView->status)
                                         @case('online')
                                             <option value="online">Онлайн</option>
                                                 <option value="walked_away">Отошел</option>

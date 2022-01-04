@@ -18,6 +18,15 @@ class UsersRegisterTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('role')->default('1');
+            $table->string('name')->nullable();
+            $table->string('job')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('adress')->nullable();
+            $table->string('status')->nullable();
+            $table->string('image')->nullable();
+            $table->string('vk')->nullable();
+            $table->string('telegram')->nullable();
+            $table->string('instagram')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

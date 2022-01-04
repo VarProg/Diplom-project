@@ -38,7 +38,7 @@
                         <div class="card-body border-faded border-top-0 border-left-0 border-right-0 rounded-top">
                             <div class="d-flex flex-row align-items-center">
                                 
-                            @switch($user->info->status ?? '')
+                            @switch($user->status ?? '')
                                 @case('online')
                                     <span class="status status-success mr-3">
                                     @break
@@ -52,20 +52,20 @@
                                     <span class="status status-success mr-3">
                             @endswitch
                                 
-                                    <a href="/page_profile/{{$user->id}}"><span class="rounded-circle profile-image d-block " style="background-image:url('/{{$user->info->image ?? "img/demo/avatars/avatar-m.png"}}'); background-size: cover;"></span></a>
+                                    <a href="/page_profile/{{$user->id}}"><span class="rounded-circle profile-image d-block " style="background-image:url('/{{$user->image ?? "img/demo/avatars/avatar-m.png"}}'); background-size: cover;"></span></a>
                                 </span>
 
                                 <div class="info-card-text flex-1"> 
-                                {{-- @if(Auth::user()->can('update-user-info', $user->info->user_id)) --}}
+                                @if(Auth::user()->can('update-user-info', $user->id))
                                     <a href="javascript:void(0);" class="fs-xl text-truncate text-truncate-lg text-info" data-toggle="dropdown" aria-expanded="false">
-                                        {{$user->info->name ?? ''}}
+                                        {{$user->name ?? ''}}
                                         
                                         <i class="fal fas fa-cog fa-fw d-inline-block ml-1 fs-md"></i>
                                         <i class="fal fa-angle-down d-inline-block ml-1 fs-md"></i>
                                     </a>
-                                {{-- @else
-                                {{$user->info->name ?? ''}} --}}
-                                {{-- @endif --}}
+                                @else
+                                {{$user->name ?? ''}}
+                                @endif
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item" href="/page_edit/{{$user->id}}">
                                             <i class="fa fa-edit"></i>
@@ -85,7 +85,7 @@
                                             Удалить
                                         </a>
                                     </div>
-                                    <span class="text-truncate text-truncate-xl">{{$user->info->job ?? ''}}</span>
+                                    <span class="text-truncate text-truncate-xl">{{$user->job ?? ''}}</span>
                                 </div>
                                 <button class="js-expand-btn btn btn-sm btn-default d-none" data-toggle="collapse" data-target="#c_1 > .card-body + .card-body" aria-expanded="false">
                                     <span class="collapsed-hidden">+</span>
@@ -96,11 +96,11 @@
                         <div class="card-body p-0 collapse show">
                             <div class="p-3">
                                 <a href="tel:+13174562564" class="mt-1 d-block fs-sm fw-400 text-dark">
-                                    <i class="fas fa-mobile-alt text-muted mr-2"></i>{{$user->info->phone ?? ''}}</a>
+                                    <i class="fas fa-mobile-alt text-muted mr-2"></i>{{$user->phone ?? ''}}</a>
                                 <a href="mailto:oliver.kopyov@smartadminwebapp.com" class="mt-1 d-block fs-sm fw-400 text-dark">
                                     <i class="fas fa-mouse-pointer text-muted mr-2"></i>{{$user->email}}</a>
                                 <address class="fs-sm fw-400 mt-4 text-muted">
-                                    <i class="fas fa-map-pin mr-2"></i>{{$user->info->adress ?? ''}}</address>
+                                    <i class="fas fa-map-pin mr-2"></i>{{$user->adress ?? ''}}</address>
                                 <div class="d-flex flex-row">
                                     <a href="javascript:void(0);" class="mr-2 fs-xxl" style="color:#4680C2">
                                         <i class="fab fa-vk"></i>

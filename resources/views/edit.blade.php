@@ -20,25 +20,25 @@
                                 <!-- username -->
                                 <div class="form-group">
                                     <label class="form-label" for="simpleinput">Имя</label>
-                                    <input type="text" name="name" id="simpleinput" class="form-control" value="{{$userInView->info->name ?? ''}}">
+                                    <input type="text" name="name" id="simpleinput" class="form-control" value="{{$userInView->name ?? ''}}">
                                 </div>
 
                                 <!-- title -->
                                 <div class="form-group">
                                     <label class="form-label" for="simpleinput">Место работы</label>
-                                    <input type="text" name="job" id="simpleinput" class="form-control" value="{{$userInView->info->job ?? ''}}">
+                                    <input type="text" name="job" id="simpleinput" class="form-control" value="{{$userInView->job ?? ''}}">
                                 </div>
 
                                 <!-- tel -->
                                 <div class="form-group">
                                     <label class="form-label" for="simpleinput">Номер телефона</label>
-                                    <input type="text" name="phone" id="simpleinput" class="form-control" value="{{$userInView->info->phone ?? ''}}">
+                                    <input type="text" name="phone" id="simpleinput" class="form-control" value="{{$userInView->phone ?? ''}}">
                                 </div>
 
                                 <!-- address -->
                                 <div class="form-group">
                                     <label class="form-label" for="simpleinput">Адрес</label>
-                                    <input type="text" name="adress" id="simpleinput" class="form-control" value="{{$userInView->info->adress ?? ''}}">
+                                    <input type="text" name="adress" id="simpleinput" class="form-control" value="{{$userInView->adress ?? ''}}">
                                 </div>
                                 <div class="col-md-12 mt-3 d-flex flex-row-reverse">
                                     <button class="btn btn-warning">Редактировать</button>

@@ -14,73 +14,37 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class RegisterTest extends TestCase
 {
-    // use RefreshDatabase;
+    use RefreshDatabase;
     
-
-
     public function testRegister()
     {
-
-        $data = [
-            'email' => Str::random(5) . 'mail.ru',
-            'password' => Str::random(10)
-        ];
         
-        $response = User::create($data);
+        $user = User::factory()->create();
 
         $this->assertDatabaseHas('users_register', [
-            'email' => $data['email'],
-            'password' => $data['password']]);
+            'email' => $user->email,
+            'name' => $user->name]);
     
     }
 
-    public function testExample()
+    public function testAddUser()
     {
-        $response = $this->get('/page_login');
-
-        $this->assertEquals(200, $response->status());      // Или assertOk(); Проверить статус просмотра страницы
-
-        // dd($response->getContent());     // Получить контент страницы
+        $user = User::factory()->create();
+        
+        $this->assertDatabaseHas('users_register', [
+            'email'     => $user->email,
+            'name'      => $user->name,
+            'job'       => $user->job,
+            'phone'     => $user->phone,
+            'adress'    => $user->adress,
+            'status'    => $user->status,
+            'image'     => $user->image,
+            'vk'        => $user->vk,
+            'telegram'  => $user->telegram,
+            'instagram' => $user->instagram
+        ]);
     }
 
-    // public function testAuth()
-    // {
-    //     $data = [
-    //         'email' => Str::random(5) . 'mail.ru',
-    //         'password' => Str::random(10)
-    //     ];
-    //     $user = User::create($data);
-
-    //     // $auth = $this->post('/login', $data);
-
-    //     $response = User::auth($data);
-        
-
-    //     $this->assertAuthenticated($guard = null);
-
-    //     // $response = $this->get('/page_users');
-    //     // $response->status();
-    // }
-
-    // public function testFailedEmailAuth()
-    // {
-    //     $this->post('/login', [
-    //         'email' => 'Natali@gmail.ru',
-    //         'password' => '123']);
-
-    //     $response = $this->get('/page_users');
-    //     $response->assertUnauthorized();
-    // }
-    
-    // public function testFailedPasswordAuth()
-    // {
-    //     $this->post('/login', [
-    //         'email' => 'Natali@mail.ru',
-    //         'password' => '1234']);
-
-    //     $response = $this->get('/page_users');
-    //     $response->assertUnauthorized();
-    // } 
     
     
     
